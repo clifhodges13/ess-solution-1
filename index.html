@@ -11,49 +11,51 @@
 
 <body>
 
-    <h1 id="title"><strong>Page</strong> <small>Knowledge Check: Exercise</small>
-        <hr>
-    </h1>
+  <h1 id="title"><strong>Page</strong> <small>Knowledge Check: Exercise</small>
+    <hr>
+  </h1>
 
-    <div class="home-container-main">
+  <div class="home-container-main">
 
-        <!-- Our iframe replacement is found here -->
+    <!-- Our iframe replacement is found here -->
     <object data="iframe.html">
-        <embed src="iframe.html"></embed>
-        Error: Embedded data could not be displayed.
+      <embed src="iframe.html"></embed>
+      Error: Embedded data could not be displayed.
     </object>
-        
-      <button id="navBtn">Next</button>
-      <br>
-      <hr>
-      <div>
-        <h2>Instructions</h2>
-        <ul>
-          <li> The main document and iframe content each have their own css styles respectively.</li>
-          <li> The challenge is to have the same functionality and styling without using an iframe.</li>
-          <li>** Make sure your solutions is supported throughout different browsers. **</li>
-        </ul>
-      </div>
+    <!-- End iframe replacement -->
 
+    <button id="navBtn">Next</button>
+    <br>
+    <hr>
+    <div>
+      <h2>Instructions</h2>
+      <ul>
+        <li> The main document and iframe content each have their own css styles respectively.</li>
+        <li> The challenge is to have the same functionality and styling without using an iframe.</li>
+        <li>** Make sure your solutions is supported throughout different browsers. **</li>
+      </ul>
     </div>
-    <script type="text/javascript" src="index.js"></script>
-    <script>
-        const navBtn = document.getElementById('navBtn');
-        const obj = document.querySelector('object');
-        const embed = document.querySelector('embed');
-        navBtn.addEventListener('click', function (e) {
-        console.log(e.target)
-        if (navBtn.textContent !== 'Back') {
-            obj.setAttribute('data', 'course.html');
-            embed.setAttribute('src', 'course.html');
-            navBtn.textContent = 'Back';
-        } else {
-            obj.setAttribute('data', 'iframe.html');
-            embed.src = 'iframe.html';
-            navBtn.textContent = 'Next';
-        }
-        });
-    </script>
+
+  </div>
+  <script>
+    const navBtn = document.getElementById('navBtn');
+    const obj = document.querySelector('object');
+    const embed = document.querySelector('embed');
+    navBtn.addEventListener('click', function (e) {
+      console.log(e.target)
+      if (navBtn.textContent !== 'Back') {
+        // if the button reads "Back", switch the src of the embed to the second page, then change the button text to "Back"
+        obj.setAttribute('data', 'course.html');
+        embed.setAttribute('src', 'course.html');
+        navBtn.textContent = 'Back';
+      } else {
+        // if the button reads "Next", switch the src of the embed back to the first page, then change the button text back to "Next"
+        obj.setAttribute('data', 'iframe.html');
+        embed.src = 'iframe.html';
+        navBtn.textContent = 'Next';
+      }
+    });
+  </script>
 </body>
 
 </html>
